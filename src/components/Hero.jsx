@@ -1,5 +1,6 @@
 import profileImg from "../assets/profile.png";
 import blobImg from "../assets/blob.svg";
+import resumePDF from "../assets/resume.pdf";
 import "./styles/Hero.css"; // Create and link the CSS file for layered styles
 
 export default function Hero() {
@@ -15,7 +16,7 @@ export default function Hero() {
           Building scalable web apps and smart ML solutions with a focus on clean code and great user experiences.
           </p>
           <div className="buttons">
-            <button className="btn yellow">Download Resume</button>
+            <a href={resumePDF} download className="btn yellow">Download Resume</a>
           </div>
         </div>
        <div className="grid w-full max-w-md mx-auto lg:mx-0 place-items-center">
