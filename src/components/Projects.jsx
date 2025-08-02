@@ -10,10 +10,10 @@ const projects = [
     demo: 'http://127.0.0.1:5501/',
   },
   {
-    title: 'Hospital Management & Appointment Scheduling',
+    title: 'Sketch To Style',
     image: hospitalImg,
-    github: 'https://github.com/aditipanda01/Hospital-management-and-appointments.git',
-    demo: 'http://localhost:8501/',
+    github: 'https://github.com/aditipanda01/runway.git',
+    demo: 'https://runway-beryl.vercel.app/',
   },
   {
     title: 'Medical Pager',
