@@ -1,13 +1,13 @@
 import ecommerceImg from '../assets/ecommerce.avif';
 import hospitalImg from '../assets/hospital.jpg';
-import medicalPagerImg from '../assets/medical-pager.webp';
+import aiimg from '../assets/ats.avif';
 
 const projects = [
   {
     title: 'Ecommerce Website (Myntra Clone)',
     image: ecommerceImg,
     github: 'https://github.com/aditipanda01/Myntra-ecommerce.git',
-    demo: 'http://127.0.0.1:5501/',
+    demo: 'https://aditipanda01.github.io/Myntra/',
   },
   {
     title: 'Sketch To Style',
@@ -16,10 +16,10 @@ const projects = [
     demo: 'https://runway-beryl.vercel.app/',
   },
   {
-    title: 'Medical Pager',
-    image: medicalPagerImg,
-    github: 'https://github.com/aditipanda01/Realtime-chat-messaging-App.git',
-    demo: 'http://localhost:3000/',
+    title: 'AI Resume Analyzer',
+    image: aiimg,
+    github: 'https://github.com/aditipanda01/ai-resume-analyzer.git',
+    demo: 'https://ai-resume-analyzer-pi-liard.vercel.app/',
   },
 ];
 
