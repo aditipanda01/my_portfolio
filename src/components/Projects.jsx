@@ -1,13 +1,13 @@
-import ecommerceImg from '../assets/ecommerce.avif';
+import ecommerceImg from '../assets/job.avif';
 import hospitalImg from '../assets/hospital.jpg';
 import aiimg from '../assets/ats.avif';
 
 const projects = [
   {
-    title: 'Ecommerce Website (Myntra Clone)',
+    title: 'Job Recommendation System',
     image: ecommerceImg,
-    github: 'https://github.com/aditipanda01/Myntra-ecommerce.git',
-    demo: 'https://aditipanda01.github.io/Myntra/',
+    github: 'https://github.com/aditipanda01/Job-Recommendation-System.git',
+    demo: 'https://job-recommendation-system-agmrgakjt24ymw3xs54s5l.streamlit.app/',
   },
   {
     title: 'Sketch To Style',
