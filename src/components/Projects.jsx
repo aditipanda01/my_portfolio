@@ -1,6 +1,6 @@
 import ecommerceImg from '../assets/job.avif';
 import hospitalImg from '../assets/hospital.jpg';
-import aiimg from '../assets/ats.avif';
+
 import clockImg from '../assets/clock.jpg';
 
 const projects = [
