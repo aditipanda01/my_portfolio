@@ -1,6 +1,7 @@
 import ecommerceImg from '../assets/job.avif';
 import hospitalImg from '../assets/hospital.jpg';
 import aiimg from '../assets/ats.avif';
+import clockImg from '../assets/clock.jpg';
 
 const projects = [
   {
@@ -17,7 +18,7 @@ const projects = [
   },
   {
     title: 'ProMinder',
-    image: clock,
+    image: clockImg,
     github: 'https://github.com/aditipanda01/Cloksy.git',
     demo: 'https://cloksy-ochre.vercel.app/',
   },
