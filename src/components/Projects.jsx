@@ -12,14 +12,14 @@ const projects = [
   {
     title: 'Sketch To Style',
     image: hospitalImg,
-    github: 'https://github.com/aditipanda01/runway.git',
-    demo: 'https://runway-beryl.vercel.app/',
+    github: 'https://github.com/aditipanda01/Style.git',
+    demo: 'https://style-ten-ecru.vercel.app/',
   },
   {
-    title: 'AI Resume Analyzer',
-    image: aiimg,
-    github: 'https://github.com/aditipanda01/ai-resume-analyzer.git',
-    demo: 'https://ai-resume-analyzer-pi-liard.vercel.app/',
+    title: 'ProMinder',
+    image: clock,
+    github: 'https://github.com/aditipanda01/Cloksy.git',
+    demo: 'https://cloksy-ochre.vercel.app/',
   },
 ];
 
