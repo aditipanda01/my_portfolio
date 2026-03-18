@@ -13,7 +13,9 @@ export default function Navbar() {
         <nav className="hidden md:flex space-x-8 font-medium text-gray-700">
           <a href="#hero" className="hover:text-yellow-500">Home</a>
           <a href="#about" className="hover:text-yellow-500">Blog</a>
+          <a href="#skills" className="hover:text-yellow-500">Skills</a>
           <a href="#experience" className="hover:text-yellow-500">Experience</a>
+          <a href="#achievements" className="hover:text-yellow-500">Achievements</a>
           <a href="#projects" className="hover:text-yellow-500">Projects</a>
           <a href="#contact" className="hover:text-yellow-500">Contact</a>
         </nav>

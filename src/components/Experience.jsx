@@ -56,10 +56,10 @@ const mlSkills = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 px-4">
+    <section id="skills" className="py-20 px-4">
       <div className="text-center">
         <p className="text-gray-600">Explore My</p>
-        <h2 className="text-5xl font-bold mb-12">Experience</h2>
+        <h2 className="text-5xl font-bold mb-12">Skills</h2>
       </div>
       <div className="flex flex-wrap justify-center gap-8">
         <div className="border border-gray-300 rounded-3xl p-8 w-full lg:w-[30%]">

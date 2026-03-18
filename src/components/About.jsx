@@ -1,22 +1,16 @@
-// About.jsx
-import aboutImage from '../assets/jpmc.jpg';
-
 export default function About() {
   return (
     <section id="about" className="py-20 px-4 md:px-16 bg-gray-50">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">About Me</h2>
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-12 mb-12">
-          <div className="md:w-1/3">
-            <img src={aboutImage} alt="Aditi Panda" className="rounded-lg shadow-lg w-full" />
-          </div>
-          <div className="md:w-2/3 space-y-4">
-            <p className="text-xl italic text-gray-600 text-center md:text-left">"Code is how I bring imagination to life and purpose to reality."</p>
-            <p className="text-gray-700">
-              Hi, I'm Aditi Panda — a passionate Full Stack Developer and Machine Learning enthusiast who loves building purposeful digital experiences. I find joy in creativity, problem-solving, and continuous learning.
-            </p>
-          </div>
+
+        <div className="mb-12">
+          <p className="text-xl italic text-gray-600 text-center mb-4">"Code is how I bring imagination to life and purpose to reality."</p>
+          <p className="text-gray-700 text-center max-w-2xl mx-auto">
+            Hi, I'm Aditi Panda — a passionate Full Stack Developer and Machine Learning enthusiast who loves building purposeful digital experiences. I find joy in creativity, problem-solving, and continuous learning.
+          </p>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white shadow-lg rounded-xl p-6">
             <h3 className="text-xl font-semibold text-gray-800 mb-2">🔥 Driven by Creativity & Passion</h3>
