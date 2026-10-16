@@ -1,4 +1,4 @@
-/* ───────── Hobbies — editorial / layered-type section ───────── */
+/* ───────── Hobbies — arc of cards above a centred layered headline ───────── */
 
 .hobbies-section {
   position: relative;
@@ -24,7 +24,7 @@
 
 .hobbies-microrow {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -35,13 +35,14 @@
 }
 
 .hobbies-microrow--bottom {
-  margin-top: 1rem;
+  margin-top: 1.25rem;
   color: #6b6b6b;
 }
 
 .hobbies-eyebrow {
   line-height: 1.5;
   max-width: 9em;
+  margin: 0;
 }
 
 .hobbies-mark {
@@ -51,23 +52,187 @@
   color: #0c0c0c;
 }
 
-/* ── Layered headline ── */
+/* ── Card deck ─────────────────────────────────────────────────
+   Below 1024px this is an ordinary responsive grid. The semicircle
+   fan only switches on at lg, where there is actually room for an
+   840px-wide arc. Fanning six cards on a phone would be unreadable.
+   ───────────────────────────────────────────────────────────── */
+
+.hobbies-deck {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .hobbies-deck {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.125rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hobbies-deck {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.hobby-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(12, 12, 12, 0.14);
+  border-radius: 14px;
+  overflow: hidden;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+}
+
+/* ── Image slot ── */
+
+.hobby-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #e2e2e2;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.hobby-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Shown until a real image is dropped in */
+.hobby-media--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f3f3f3 0%, #e0e0e0 100%);
+}
+
+.hobby-media--empty span {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #a6a6a6;
+}
+
+.hobby-body {
+  padding: 0.875rem 1rem 1.125rem;
+  border-left: 3px solid #facc15;
+  flex: 1;
+  min-width: 0;
+}
+
+.hobby-index {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  color: #9a9a9a;
+  margin-bottom: 0.45rem;
+}
+
+.hobby-title {
+  font-size: clamp(0.95rem, 2.6vw, 1.125rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 0.4rem;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.hobby-sub {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+/* ── The semicircle fan (lg and up only) ── */
+
+@media (min-width: 1024px) {
+  .hobbies-deck {
+    display: block;
+    position: relative;
+    height: 470px;
+    margin-top: 1rem;
+  }
+
+  .hobbies-deck .hobby-card {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 190px;
+    margin-left: -95px;
+    z-index: var(--z, 1);
+    /* Pivot well below the card so the six cards sweep out an arc
+       instead of each spinning on its own centre. */
+    transform-origin: 50% 460px;
+    transform: rotate(var(--angle, 0deg));
+    box-shadow: 0 10px 28px rgba(12, 12, 12, 0.12);
+  }
+
+  .hobbies-deck .hobby-card:hover,
+  .hobbies-deck .hobby-card:focus-within {
+    transform: rotate(var(--angle, 0deg)) translateY(-18px);
+    box-shadow: 0 22px 48px rgba(12, 12, 12, 0.22);
+    z-index: 20;
+  }
+
+  .hobby-body {
+    padding: 0.75rem 0.875rem 1rem;
+  }
+
+  .hobby-title {
+    font-size: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hobby-card {
+    transition: none;
+  }
+}
+
+/* ── Centred layered headline ── */
 
 .hobbies-headline {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(2rem, 5vw, 3rem);
+}
+
+/* The accent block and the outline layer are positioned against this
+   wrapper, which shrink-wraps the word — so "centre" means centred on
+   the text, not on the section. */
+.hobbies-stack {
   position: relative;
-  margin: 1.25rem 0 0;
-  /* Room for the second, offset layer to sit below the first. */
-  padding-bottom: clamp(1.5rem, 5vw, 3.25rem);
+  display: inline-block;
+  padding-bottom: clamp(1.1rem, 4.2vw, 3.1rem);
   line-height: 0.82;
 }
 
 .hobbies-accent {
   position: absolute;
-  top: -8%;
+  top: -10%;
   left: 50%;
   transform: translateX(-50%);
   width: clamp(54px, 13vw, 130px);
-  height: 118%;
+  height: 108%;
   background: #facc15;
   z-index: 0;
 }
@@ -83,13 +248,11 @@
   margin: 0;
 }
 
-/* Solid layer */
 .hobbies-word--solid {
   color: #0c0c0c;
   z-index: 2;
 }
 
-/* Outlined layer, nudged down and across so the two overlap */
 .hobbies-word--outline {
   position: absolute;
   top: clamp(1.1rem, 4.2vw, 3.1rem);
@@ -106,118 +269,10 @@
   }
 }
 
-/* If text-stroke isn't supported the outlined layer would be invisible,
-   so fall back to a soft grey fill instead of nothing. */
+/* Without text-stroke support the outline layer would render invisible,
+   so fall back to a soft fill rather than nothing. */
 @supports not ((-webkit-text-stroke: 1px #000) or (text-stroke: 1px #000)) {
   .hobbies-word--outline {
     color: rgba(12, 12, 12, 0.22);
   }
-}
-
-/* ── Cards ── */
-
-.hobbies-grid {
-  position: relative;
-  z-index: 4;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.875rem;
-  margin-top: clamp(2rem, 6vw, 3.5rem);
-}
-
-@media (min-width: 640px) {
-  .hobbies-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.125rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hobbies-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.25rem;
-  }
-}
-
-.hobby-card {
-  position: relative;
-  background: #ffffff;
-  border: 1px solid rgba(12, 12, 12, 0.14);
-  border-radius: 14px;
-  padding: 1.25rem 1.125rem 1.375rem;
-  min-width: 0;
-  overflow: hidden;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-@media (min-width: 640px) {
-  .hobby-card {
-    padding: 1.5rem 1.375rem 1.625rem;
-  }
-}
-
-/* The scattered tilt only applies from sm up. On phones everything stays
-   square — rotated cards in a 1-column grid just clip at the edges. */
-@media (min-width: 640px) {
-  .hobby-card:nth-child(3n + 1) {
-    transform: rotate(-1.4deg);
-  }
-  .hobby-card:nth-child(3n + 2) {
-    transform: rotate(0.9deg);
-  }
-  .hobby-card:nth-child(3n + 3) {
-    transform: rotate(-0.5deg);
-  }
-  .hobby-card:hover {
-    transform: rotate(0deg) translateY(-6px);
-    box-shadow: 0 18px 40px rgba(12, 12, 12, 0.16);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hobby-card,
-  .hobby-card:hover {
-    transform: none;
-    transition: none;
-  }
-}
-
-/* Accent bar down the left edge */
-.hobby-card::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 1.1rem;
-  bottom: 1.1rem;
-  width: 3px;
-  border-radius: 0 3px 3px 0;
-  background: #facc15;
-}
-
-.hobby-index {
-  display: block;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.3em;
-  color: #9a9a9a;
-  margin-bottom: 0.625rem;
-}
-
-.hobby-title {
-  font-size: clamp(1.0625rem, 3.6vw, 1.3125rem);
-  font-weight: 700;
-  line-height: 1.28;
-  margin: 0 0 0.5rem;
-  overflow-wrap: break-word;
-  hyphens: auto;
-}
-
-.hobby-sub {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: clamp(0.65rem, 2.4vw, 0.75rem);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #6b6b6b;
-  margin: 0;
-  overflow-wrap: break-word;
 }
