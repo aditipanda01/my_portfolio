@@ -25,9 +25,16 @@ const hobbies = [
   { title: "A Beginner at Everything", sub: "Experimenting & Learning New Skills", img: null /* learningImg */ },
 ];
 
-// Evenly spaced across a 90° sweep. Only used at lg and up, where the
-// CSS turns the grid into the fan; below that these values are ignored.
-const ANGLES = [-45, -27, -9, 9, 27, 45];
+// Evenly spaced across a 108° sweep, running clockwise: the first card
+// sits low on the left, the arc climbs over the top, the last card sits
+// low on the right. Negate these to run anticlockwise.
+// Only used at lg and up, where the CSS turns the grid into the fan.
+const ANGLES = [-54, -32.4, -10.8, 10.8, 32.4, 54];
+
+// Stacking order: centre cards sit on top of the outer ones.
+// These MUST stay positive — a negative z-index paints the card behind
+// the section's own background and it vanishes entirely.
+const Z_ORDER = [1, 2, 3, 3, 2, 1];
 
 const Mark = () => (
   <svg className="hobbies-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -59,9 +66,7 @@ export default function Hobbies() {
               className="hobby-card"
               style={{
                 "--angle": `${ANGLES[i]}deg`,
-                // Centre cards sit above the outer ones so the fan reads
-                // as a deck rather than a flat row.
-                "--z": String(10 - Math.abs(ANGLES[i])),
+                "--z": String(Z_ORDER[i]),
               }}
             >
               <div className={`hobby-media${h.img ? "" : " hobby-media--empty"}`}>

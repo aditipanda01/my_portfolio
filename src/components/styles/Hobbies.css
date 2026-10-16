@@ -168,7 +168,7 @@
   .hobbies-deck {
     display: block;
     position: relative;
-    height: 470px;
+    height: 490px;
     margin-top: 1rem;
   }
 
@@ -176,15 +176,27 @@
     position: absolute;
     left: 50%;
     bottom: 0;
-    width: 190px;
-    margin-left: -95px;
+    width: 230px;
+    margin-left: -115px;
+    /* Must stay positive. A negative z-index here paints the card
+       behind the section background and it disappears. */
     z-index: var(--z, 1);
     /* Pivot well below the card so the six cards sweep out an arc
-       instead of each spinning on its own centre. */
-    transform-origin: 50% 460px;
+       instead of each spinning on its own centre. The pivot distance
+       sets how wide the arc opens: see the geometry note below. */
+    transform-origin: 50% 540px;
     transform: rotate(var(--angle, 0deg));
     box-shadow: 0 10px 28px rgba(12, 12, 12, 0.12);
   }
+
+  /* Geometry, so these numbers can be retuned safely:
+       card height   ~294px  -> centre sits ~147px from its top
+       pivot          540px from card top -> radius R = 393px
+       outer angle     54deg -> sideways reach  R*sin54 = 318px
+                             -> arc total width 2*(318+115) = 866px
+                             -> fits the 960px available at lg
+                             -> vertical rise  R-R*cos54 = 162px
+                             -> needs 294+162 = 456px of the 490px height */
 
   .hobbies-deck .hobby-card:hover,
   .hobbies-deck .hobby-card:focus-within {
@@ -194,11 +206,11 @@
   }
 
   .hobby-body {
-    padding: 0.75rem 0.875rem 1rem;
+    padding: 0.875rem 1rem 1.125rem;
   }
 
   .hobby-title {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
 
