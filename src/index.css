@@ -2,7 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   @apply bg-white text-gray-800 font-sans;
   font-family: 'Poppins', sans-serif;
+  /* `clip` rather than `hidden`: it contains stray horizontal overflow without
+     creating a scroll container, so `position: sticky` inside Achievements
+     keeps working. `overflow-x: hidden` here would silently break it. */
+  overflow-x: clip;
+}
+
+/* The navbar is fixed, so anchor targets would otherwise land underneath it. */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

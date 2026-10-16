@@ -1,10 +1,11 @@
 const CheckmarkIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6 text-black"
+    className="h-5 w-5 text-black flex-shrink-0"
     fill="black"
     viewBox="0 0 24 24"
     stroke="white"
+    aria-hidden="true"
   >
     <path
       strokeLinecap="round"
@@ -15,82 +16,80 @@ const CheckmarkIcon = () => (
   </svg>
 );
 
-const Skill = ({ name, level }) => (
-  <div className="flex items-start">
-    <div className="flex-shrink-0 mt-1">
-      <CheckmarkIcon />
-    </div>
-    <div className="ml-4">
-      <h4 className="text-lg font-bold">{name}</h4>
-      <p className="text-gray-500">{level}</p>
-    </div>
+const skillGroups = [
+  {
+    title: "Programming & Scripting",
+    items: ["C", "C++", "Python", "SQL"],
+  },
+  {
+    title: "Frontend Technologies",
+    items: ["HTML", "CSS", "JavaScript", "React", "Vite"],
+  },
+  {
+    title: "Backend Technologies",
+    items: ["Node.js", "Express.js", "MongoDB", "API Integration"],
+  },
+  {
+    title: "Data & ML",
+    items: ["MySQL", "Pandas", "NumPy", "TensorFlow", "Scikit-learn"],
+  },
+  {
+    title: "Tools & Platforms",
+    items: ["Git", "GitHub", "VS Code"],
+  },
+  {
+    title: "Frameworks & Libraries",
+    items: ["Streamlit"],
+  },
+  {
+    title: "Systems & Networking",
+    items: ["Windows", "Basic networking"],
+  },
+  {
+    title: "Soft Skills",
+    items: [
+      "Clear communication",
+      "Task ownership",
+      "Collaboration in team-based projects",
+    ],
+  },
+];
+
+const SkillGroup = ({ title, items }) => (
+  <div className="border border-gray-300 rounded-3xl p-5 sm:p-6 lg:p-8 h-full">
+    <h3 className="text-lg sm:text-xl font-semibold mb-5 text-center sm:text-left">
+      {title}
+    </h3>
+    <ul className="list-none p-0 m-0 flex flex-col gap-3">
+      {items.map((item) => (
+        <li key={item} className="flex items-start gap-3">
+          <span className="mt-0.5">
+            <CheckmarkIcon />
+          </span>
+          <span className="text-sm sm:text-base text-gray-700 break-words min-w-0">
+            {item}
+          </span>
+        </li>
+      ))}
+    </ul>
   </div>
 );
 
-const softwareSkills = [
-  { name: 'HTML and CSS', level: 'Experienced' },
-  { name: 'JavaScript', level: 'Experienced' },
-  { name: 'ReactJS', level: 'Experienced' },
-  { name: 'Tailwind CSS and Vite', level: 'Experienced' },
-  { name: 'React Native, Flutter', level: 'Intermediate' },
-];
-
-const backendSkills = [
-    { name: 'MongoDB', level: 'Intermediate' },
-    { name: 'ExpressJS', level: 'Intermediate' },
-    { name: 'API Integration', level: 'Intermediate' },
-    { name: 'Flask, Streamlit', level: 'Intermediate' },
-    { name: 'Python', level: 'Experienced' },
-    { name: 'C, C++', level: 'Experienced' },
-    { name: 'SQL', level: 'Experienced' },
-    { name: 'DSA and CP', level: 'Intermediate' },
-];
-
-const mlSkills = [
-  { name: 'Python', level: 'Experienced' },
-  { name: 'Scikit-Learn', level: 'Intermediate' },
-  { name: 'OpenCV and TensorFlow', level: 'Intermediate' },
-  { name: 'Deep Learning and NLP', level: 'Intermediate' },
-  { name: 'Computer Vision', level: 'Intermediate' },
-];
-
 const Experience = () => {
   return (
-    <section id="skills" className="py-20 px-4">
-      <div className="text-center">
+    <section id="skills" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="text-center mb-10 sm:mb-12">
         <p className="text-gray-600">Explore My</p>
-        <h2 className="text-5xl font-bold mb-12">Skills</h2>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">Skills</h2>
       </div>
-      <div className="flex flex-wrap justify-center gap-8">
-        <div className="border border-gray-300 rounded-3xl p-8 w-full lg:w-[30%]">
-          <h3 className="text-2xl font-semibold text-center mb-8">Software Development</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-            {softwareSkills.map((skill) => (
-              <Skill key={skill.name} name={skill.name} level={skill.level} />
-            ))}
-          </div>
-        </div>
 
-        <div className="border border-gray-300 rounded-3xl p-8 w-full lg:w-[30%]">
-          <h3 className="text-2xl font-semibold text-center mb-8">Backend & Programming</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-            {backendSkills.map((skill) => (
-              <Skill key={skill.name} name={skill.name} level={skill.level} />
-            ))}
-          </div>
-        </div>
-
-        <div className="border border-gray-300 rounded-3xl p-8 w-full lg:w-[30%]">
-          <h3 className="text-2xl font-semibold text-center mb-8">Machine Learning</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-            {mlSkills.map((skill) => (
-              <Skill key={skill.name} name={skill.name} level={skill.level} />
-            ))}
-          </div>
-        </div>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        {skillGroups.map((group) => (
+          <SkillGroup key={group.title} title={group.title} items={group.items} />
+        ))}
       </div>
     </section>
   );
 };
 
-export default Experience; 
+export default Experience;

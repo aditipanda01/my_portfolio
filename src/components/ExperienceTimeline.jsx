@@ -93,20 +93,29 @@ export default function ExperienceTimeline() {
   const locoY = activeDotY - 14;
 
   return (
-    <section id="experience" className="py-20 px-4 md:px-8 bg-white">
+    <section id="experience" className="py-14 sm:py-20 px-4 md:px-8 bg-white">
       <div className="max-w-3xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="text-gray-500 text-sm uppercase tracking-widest mb-2">
+        <div className="text-center mb-10 sm:mb-16">
+          <p className="text-gray-500 text-xs sm:text-sm uppercase tracking-widest mb-2">
             Explore My
           </p>
-          <h2 className="text-4xl font-bold text-gray-900">Experience</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Experience</h2>
         </div>
 
         {/* Track + Cards */}
-        <div className="relative pl-16" ref={trackRef}>
+        {/* --pad-x must stay in sync with the pl-* classes; the rail and the
+            station dots are positioned from it, so one variable keeps the
+            three aligned at every breakpoint. */}
+        <div
+          className="relative pl-10 sm:pl-16 [--pad-x:2.5rem] sm:[--pad-x:4rem] [--rail-x:1rem] sm:[--rail-x:1.75rem]"
+          ref={trackRef}
+        >
           {/* Vertical Rail */}
-          <div className="absolute left-7 top-0 bottom-0 w-1 rounded-full bg-gray-100">
+          <div
+            className="absolute top-0 bottom-0 w-1 rounded-full bg-gray-100"
+            style={{ left: "var(--rail-x)" }}
+          >
             {/* Amber fill */}
             <div
               className="absolute left-0 top-0 w-full rounded-full bg-gradient-to-b from-yellow-400 to-yellow-600 transition-all duration-700 ease-in-out"
@@ -125,8 +134,8 @@ export default function ExperienceTimeline() {
 
           {/* Locomotive emoji */}
           <div
-            className="absolute left-4 z-10 text-xl select-none transition-all duration-700 ease-in-out"
-            style={{ top: `${locoY}px` }}
+            className="absolute z-10 text-xl select-none transition-all duration-700 ease-in-out"
+            style={{ top: `${locoY}px`, left: "calc(var(--rail-x) - 0.6rem)" }}
           >
             🚂
           </div>
@@ -139,7 +148,7 @@ export default function ExperienceTimeline() {
                 <div
                   className="absolute z-20 transition-all duration-500"
                   style={{
-                    left: "-2.15rem",
+                    left: "calc(var(--rail-x) - var(--pad-x) + 2px)",
                     top: "1.35rem",
                     transform: "translateX(-50%)",
                   }}
@@ -158,7 +167,7 @@ export default function ExperienceTimeline() {
               <div
                 ref={(el) => (cardRefs.current[i] = el)}
                 onClick={() => setActiveIdx(i)}
-                className={`relative cursor-pointer rounded-2xl border p-6 transition-all duration-500 ${
+                className={`relative cursor-pointer rounded-2xl border p-4 sm:p-6 transition-all duration-500 ${
                   i === activeIdx
                     ? "border-gray-200 shadow-md bg-white opacity-100 translate-x-0"
                     : "border-gray-100 bg-gray-50 opacity-50 translate-x-1"
@@ -172,7 +181,7 @@ export default function ExperienceTimeline() {
                 />
 
                 {/* Tag + Period row */}
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                   <span
                     className={`text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide ${exp.tagColors}`}
                   >

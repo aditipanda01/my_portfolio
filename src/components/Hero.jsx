@@ -4,7 +4,7 @@ import "./styles/Hero.css"; // Create and link the CSS file for layered styles
 
 export default function Hero() {
   return (
-    <section className="hero-section">
+    <section id="hero" className="hero-section">
       <div className="hero-content">
         <div className="text-content">
           <p className="intro">Hi! I'm</p>

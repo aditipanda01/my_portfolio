@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="font-sans scroll-smooth">
       <Navbar />
-      <main className="pt-24"> {/* Offset for fixed navbar */}
+      <main className="pt-20 sm:pt-24"> {/* Offset for fixed navbar */}
         <Hero />
         <About />
         
