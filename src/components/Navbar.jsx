@@ -17,6 +17,7 @@ export default function Navbar() {
           <a href="#experience" className="hover:text-yellow-500">Experience</a>
           <a href="#achievements" className="hover:text-yellow-500">Achievements</a>
           <a href="#projects" className="hover:text-yellow-500">Projects</a>
+           <a href="#hobbies" className="hover:text-yellow-500">Hobbies</a>
           <a href="#contact" className="hover:text-yellow-500">Contact</a>
         </nav>
 

@@ -8,7 +8,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Achievements from "./components/Achievement";
-
+import Hobbies from "./components/Hobbies";
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
         <Experience />
           <Achievements />
         <Projects />
+        <Hobbies />
         <Contact />
       </main>
       <Footer />
