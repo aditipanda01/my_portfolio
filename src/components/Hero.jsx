@@ -18,7 +18,7 @@ export default function Hero() {
             <a href="/resume.pdf" download className="btn yellow">Download Resume </a>
           </div>
         </div>
-       <div className="grid w-full max-w-md mx-auto lg:mx-0 place-items-center">
+       <div className="grid w-full max-w-md mx-auto lg:mx-0 place-items-center overflow-hidden">
   <img
     src={blobImg}
     alt="Blob"
