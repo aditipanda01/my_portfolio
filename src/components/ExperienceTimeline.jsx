@@ -44,6 +44,20 @@ const experiences = [
     ],
     chips: ["Python", "XAI", "ECG Analysis", "Deep Learning", "NLP"],
   },
+    {
+    id: 3,
+    tag: "Research · AI",
+    tagColors: "bg-purple-50 text-purple-700 border border-purple-200",
+    title: "Research Intern — Multimodal Cardiac Disease Detection",
+    org: "IIT (ISM) Dhanbad · SRIS",
+    supervisor: "Under Dr. A. C. S. Rao",
+    period: "Summer 2026",
+    bullets: [
+      "Collaborated in a 5-member team to develop a multimodal cardiac disease detection system integrating ECG, Echo, biosensor, and lipid-profile data.",
+      "Developed an intermediate fusion model with multi-head cross-attention, achieving 0.942 validation AUROC, and enabled AR/VR-based risk visualization using FastAPI and WebXR.",
+    ],
+    chips: ["Multimodal Fusion", "Cross-Attention", "FastAPI", "WebXR", "AR/VR"],
+  },
 ];
 
 export default function ExperienceTimeline() {
@@ -100,7 +114,7 @@ export default function ExperienceTimeline() {
             />
 
             {/* Rail sleepers */}
-            {Array.from({ length: 30 }).map((_, i) => (
+            {Array.from({ length: 45 }).map((_, i) => (
               <div
                 key={i}
                 className="absolute -left-1.5 w-4 h-px bg-gray-200"
