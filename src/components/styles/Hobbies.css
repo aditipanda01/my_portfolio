@@ -1,17 +1,17 @@
 
-/* ───────── Hobbies — compact arc of cards + centred headline ───────── */
+/* ───────── Hobbies — bigger cards, wider arc, compact section ───────── */
 
 .hobbies-section {
   position: relative;
   background: #ebebeb;
   color: #0c0c0c;
-  padding: 2rem 1rem 2rem;
+  padding: 1.5rem 1rem 1.25rem;
   overflow: hidden;
 }
 
 @media (min-width: 768px) {
   .hobbies-section {
-    padding: 3rem 2rem 2.5rem;
+    padding: 2rem 2rem 1.5rem;
   }
 }
 
@@ -58,7 +58,7 @@
 .hobbies-deck {
   list-style: none;
   padding: 0;
-  margin: 1.25rem 0 0;
+  margin: 1rem 0 0;
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.75rem;
@@ -77,6 +77,8 @@
   }
 }
 
+/* ── Hobby cards ── */
+
 .hobby-card {
   position: relative;
   background: #ffffff;
@@ -91,29 +93,33 @@
     box-shadow 0.4s ease;
 }
 
-/* ── Image slot ── */
+/* ── Bigger image area ── */
 
 .hobby-media {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 4 / 3;
   background: #e2e2e2;
   overflow: hidden;
   flex-shrink: 0;
 }
 
 .hobby-media img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 .hobby-media--empty {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f3f3f3 0%, #e0e0e0 100%);
+  background: linear-gradient(
+    135deg,
+    #f3f3f3 0%,
+    #e0e0e0 100%
+  );
 }
 
 .hobby-media--empty span {
@@ -127,7 +133,7 @@
 /* ── Card text ── */
 
 .hobby-body {
-  padding: 0.75rem 0.875rem 0.875rem;
+  padding: 0.8rem 0.9rem 0.9rem;
   border-left: 3px solid #facc15;
   flex: 1;
   min-width: 0;
@@ -161,41 +167,52 @@
   overflow-wrap: break-word;
 }
 
-/* ── Desktop fan layout ── */
+/* ── Bigger, wider semicircle on desktop ── */
 
 @media (min-width: 1024px) {
   .hobbies-deck {
     display: block;
     position: relative;
-    height: 420px;
-    margin-top: 0.5rem;
+    height: 470px;
+    margin-top: 0.75rem;
   }
 
   .hobbies-deck .hobby-card {
     position: absolute;
     left: 50%;
     bottom: 0;
-    width: 230px;
-    margin-left: -115px;
+    width: 270px;
+    margin-left: -135px;
+
     z-index: var(--z, 1);
-    transform-origin: 50% 540px;
+
+    /* Wider arc while keeping the cards visually separated */
+    transform-origin: 50% 650px;
     transform: rotate(var(--angle, 0deg));
-    box-shadow: 0 10px 28px rgba(12, 12, 12, 0.12);
+
+    box-shadow: 0 12px 32px rgba(12, 12, 12, 0.14);
   }
 
   .hobbies-deck .hobby-card:hover,
   .hobbies-deck .hobby-card:focus-within {
-    transform: rotate(var(--angle, 0deg)) translateY(-18px);
+    transform:
+      rotate(var(--angle, 0deg))
+      translateY(-18px);
+
     box-shadow: 0 22px 48px rgba(12, 12, 12, 0.22);
     z-index: 20;
   }
 
   .hobby-body {
-    padding: 0.75rem 0.875rem 0.875rem;
+    padding: 0.8rem 0.9rem 0.9rem;
   }
 
   .hobby-title {
-    font-size: 1rem;
+    font-size: 1.05rem;
+  }
+
+  .hobby-sub {
+    font-size: 0.6rem;
   }
 }
 
@@ -212,13 +229,13 @@
 .hobbies-headline {
   display: flex;
   justify-content: center;
-  margin-top: 0.75rem;
+  margin-top: 1.5rem;
 }
 
 .hobbies-stack {
   position: relative;
   display: inline-block;
-  padding-bottom: clamp(0.9rem, 3vw, 2rem);
+  padding-bottom: clamp(0.8rem, 3vw, 2rem);
   line-height: 0.82;
 }
 
@@ -251,7 +268,7 @@
 
 .hobbies-word--outline {
   position: absolute;
-  top: clamp(0.9rem, 3vw, 2rem);
+  top: clamp(0.8rem, 3vw, 2rem);
   left: clamp(0.75rem, 4vw, 3.5rem);
   z-index: 3;
   color: transparent;
@@ -267,7 +284,10 @@
 
 /* ── Fallback for browsers without text-stroke ── */
 
-@supports not ((-webkit-text-stroke: 1px #000) or (text-stroke: 1px #000)) {
+@supports not (
+  (-webkit-text-stroke: 1px #000) or
+  (text-stroke: 1px #000)
+) {
   .hobbies-word--outline {
     color: rgba(12, 12, 12, 0.22);
   }

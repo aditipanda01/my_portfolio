@@ -29,7 +29,7 @@ const hobbies = [
 // sits low on the left, the arc climbs over the top, the last card sits
 // low on the right. Negate these to run anticlockwise.
 // Only used at lg and up, where the CSS turns the grid into the fan.
-const ANGLES = [-54, -32.4, -10.8, 10.8, 32.4, 54];
+const ANGLES = [-48, -29, -10, 10, 29, 48];
 
 // Stacking order: centre cards sit on top of the outer ones.
 // These MUST stay positive — a negative z-index paints the card behind
