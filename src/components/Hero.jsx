@@ -11,7 +11,7 @@ export default function Hero() {
           
 <h1 className="heading">
   <span className="hero-name">Aditi Panda</span>
-  <span className="highlight">
+  <span className="highlight"><br className="desktop-break" />
     Full Stack Developer
     <br className="desktop-break" /> and ML Enthusiast
   </span>
