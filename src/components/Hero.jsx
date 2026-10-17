@@ -8,9 +8,15 @@ export default function Hero() {
       <div className="hero-content">
         <div className="text-content">
           <p className="intro">Hi! I'm</p>
-          <h1 className="heading">
-            Aditi Panda - <span className="highlight">Full Stack Developer and ML enthusiast </span>
-          </h1>
+          
+<h1 className="heading">
+  <span className="hero-name">Aditi Panda</span>
+  <span className="highlight">
+    Full Stack Developer
+    <br className="desktop-break" /> and ML Enthusiast
+  </span>
+</h1>
+
           <p className="subtext">
           Building scalable web apps and smart ML solutions with a focus on clean code and great user experiences.
           </p>
