@@ -23,7 +23,7 @@ export default function Hero() {
          
 <div className="buttons">
   <a
-    href="/pandaaditi.pdf"
+    href="/Resume.pdf"
     download="Aditi_Panda_Resume.pdf"
     className="btn yellow"
   >
