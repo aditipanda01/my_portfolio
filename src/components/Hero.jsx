@@ -20,7 +20,7 @@ export default function Hero() {
           <p className="subtext">
           Building scalable web apps and smart ML solutions with a focus on clean code and great user experiences.
           </p>
-         ```jsx
+         
 <div className="buttons">
   <a
     href="/pandaaditi.pdf"
