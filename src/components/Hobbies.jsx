@@ -9,20 +9,20 @@ import "./styles/Hobbies.css";
    block, so the section looks fine before you add them.
    ───────────────────────────────────────────────────────────── */
 
-// import curiousImg   from "../assets/curious.jpg";
-// import designImg    from "../assets/design.jpg";
-// import paintingImg  from "../assets/painting.jpg";
-// import danceImg     from "../assets/dance.jpg";
-// import travelImg    from "../assets/travel.jpg";
-// import learningImg  from "../assets/learning.jpg";
+ import curiousImg   from "../assets/pic1.jpeg";
+import designImg    from "../assets/women in stem.jpg";
+ import paintingImg  from "../assets/art.jpeg";
+ import danceImg     from "../assets/dance.jpeg";
+ import travelImg    from "../assets/travelling.jpg";
+ import learningImg  from "../assets/download(8).jpg";
 
 const hobbies = [
-  { title: "Forever a Curious Mind", sub: "Learning & Exploring Ideas", img: null /* curiousImg */ },
-  { title: "Turning Imagination into Art", sub: "Designing & Creating", img: null /* designImg */ },
-  { title: "Life in a Thousand Colors", sub: "Painting & Artistic Expression", img: null /* paintingImg */ },
-  { title: "When Words Become Movement", sub: "Dancing & Music", img: null /* danceImg */ },
-  { title: "Collecting Moments, Not Things", sub: "Travelling & Discovering Places", img: null /* travelImg */ },
-  { title: "A Beginner at Everything", sub: "Experimenting & Learning New Skills", img: null /* learningImg */ },
+  { title: "Forever a Curious Mind", sub: "Learning & Exploring Ideas", img:  curiousImg  },
+  { title: "Turning Imagination into Art", sub: "Designing & Creating", img:  designImg  },
+  { title: "Life in a Thousand Colors", sub: "Painting & Artistic Expression", img:  paintingImg  },
+  { title: "When Words Become Movement", sub: "Dancing & Music", img:  danceImg  },
+  { title: "Collecting Moments, Not Things", sub: "Travelling & Discovering Places", img: travelImg  },
+  { title: "A Beginner at Everything", sub: "Experimenting & Learning New Skills", img:  learningImg },
 ];
 
 // Evenly spaced across a 108° sweep, running clockwise: the first card
