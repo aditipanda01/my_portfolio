@@ -21,7 +21,7 @@ export default function Hero() {
           Building scalable web apps and smart ML solutions with a focus on clean code and great user experiences.
           </p>
           <div className="buttons">
-            <a href="/resume.pdf" download className="btn yellow">Download Resume </a>
+            <a href="/Resume.pdf" download className="btn yellow">Download Resume </a>
           </div>
         </div>
        <div className="grid w-full max-w-md mx-auto lg:mx-0 place-items-center">
