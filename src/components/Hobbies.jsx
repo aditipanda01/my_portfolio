@@ -13,8 +13,8 @@ import "./styles/Hobbies.css";
 import designImg    from "../assets/women in stem.jpg";
  import paintingImg  from "../assets/art.jpeg";
  import danceImg     from "../assets/dance.jpeg";
- import travelImg    from "../assets/travelling.jpg";
- import learningImg  from "../assets/download(8).jpg";
+ import travelImg    from "../assets/travelling.jpeg";
+ import learningImg  from "../assets/pic2.jpeg";
 
 const hobbies = [
   { title: "Forever a Curious Mind", sub: "Learning & Exploring Ideas", img:  curiousImg  },

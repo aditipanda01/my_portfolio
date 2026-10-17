@@ -1,16 +1,17 @@
-/* ───────── Hobbies — arc of cards above a centred layered headline ───────── */
+
+/* ───────── Hobbies — compact arc of cards + centred headline ───────── */
 
 .hobbies-section {
   position: relative;
   background: #ebebeb;
   color: #0c0c0c;
-  padding: 3.5rem 1rem 4rem;
+  padding: 2rem 1rem 2rem;
   overflow: hidden;
 }
 
 @media (min-width: 768px) {
   .hobbies-section {
-    padding: 5rem 2rem 5.5rem;
+    padding: 3rem 2rem 2.5rem;
   }
 }
 
@@ -35,7 +36,7 @@
 }
 
 .hobbies-microrow--bottom {
-  margin-top: 1.25rem;
+  margin-top: 0.5rem;
   color: #6b6b6b;
 }
 
@@ -52,25 +53,21 @@
   color: #0c0c0c;
 }
 
-/* ── Card deck ─────────────────────────────────────────────────
-   Below 1024px this is an ordinary responsive grid. The semicircle
-   fan only switches on at lg, where there is actually room for an
-   840px-wide arc. Fanning six cards on a phone would be unreadable.
-   ───────────────────────────────────────────────────────────── */
+/* ── Responsive card deck ── */
 
 .hobbies-deck {
   list-style: none;
   padding: 0;
-  margin: 2rem 0 0;
+  margin: 1.25rem 0 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.875rem;
+  gap: 0.75rem;
 }
 
 @media (min-width: 640px) {
   .hobbies-deck {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.125rem;
+    gap: 1rem;
   }
 }
 
@@ -89,7 +86,8 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.4s ease;
 }
 
@@ -111,7 +109,6 @@
   display: block;
 }
 
-/* Shown until a real image is dropped in */
 .hobby-media--empty {
   display: flex;
   align-items: center;
@@ -127,8 +124,10 @@
   color: #a6a6a6;
 }
 
+/* ── Card text ── */
+
 .hobby-body {
-  padding: 0.875rem 1rem 1.125rem;
+  padding: 0.75rem 0.875rem 0.875rem;
   border-left: 3px solid #facc15;
   flex: 1;
   min-width: 0;
@@ -140,14 +139,14 @@
   font-size: 0.6rem;
   letter-spacing: 0.3em;
   color: #9a9a9a;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.35rem;
 }
 
 .hobby-title {
   font-size: clamp(0.95rem, 2.6vw, 1.125rem);
   font-weight: 700;
   line-height: 1.3;
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.35rem;
   overflow-wrap: break-word;
   hyphens: auto;
 }
@@ -162,14 +161,14 @@
   overflow-wrap: break-word;
 }
 
-/* ── The semicircle fan (lg and up only) ── */
+/* ── Desktop fan layout ── */
 
 @media (min-width: 1024px) {
   .hobbies-deck {
     display: block;
     position: relative;
-    height: 490px;
-    margin-top: 1rem;
+    height: 420px;
+    margin-top: 0.5rem;
   }
 
   .hobbies-deck .hobby-card {
@@ -178,25 +177,11 @@
     bottom: 0;
     width: 230px;
     margin-left: -115px;
-    /* Must stay positive. A negative z-index here paints the card
-       behind the section background and it disappears. */
     z-index: var(--z, 1);
-    /* Pivot well below the card so the six cards sweep out an arc
-       instead of each spinning on its own centre. The pivot distance
-       sets how wide the arc opens: see the geometry note below. */
     transform-origin: 50% 540px;
     transform: rotate(var(--angle, 0deg));
     box-shadow: 0 10px 28px rgba(12, 12, 12, 0.12);
   }
-
-  /* Geometry, so these numbers can be retuned safely:
-       card height   ~294px  -> centre sits ~147px from its top
-       pivot          540px from card top -> radius R = 393px
-       outer angle     54deg -> sideways reach  R*sin54 = 318px
-                             -> arc total width 2*(318+115) = 866px
-                             -> fits the 960px available at lg
-                             -> vertical rise  R-R*cos54 = 162px
-                             -> needs 294+162 = 456px of the 490px height */
 
   .hobbies-deck .hobby-card:hover,
   .hobbies-deck .hobby-card:focus-within {
@@ -206,13 +191,15 @@
   }
 
   .hobby-body {
-    padding: 0.875rem 1rem 1.125rem;
+    padding: 0.75rem 0.875rem 0.875rem;
   }
 
   .hobby-title {
     font-size: 1rem;
   }
 }
+
+/* ── Reduced motion accessibility ── */
 
 @media (prefers-reduced-motion: reduce) {
   .hobby-card {
@@ -225,16 +212,13 @@
 .hobbies-headline {
   display: flex;
   justify-content: center;
-  margin-top: clamp(2rem, 5vw, 3rem);
+  margin-top: 0.75rem;
 }
 
-/* The accent block and the outline layer are positioned against this
-   wrapper, which shrink-wraps the word — so "centre" means centred on
-   the text, not on the section. */
 .hobbies-stack {
   position: relative;
   display: inline-block;
-  padding-bottom: clamp(1.1rem, 4.2vw, 3.1rem);
+  padding-bottom: clamp(0.9rem, 3vw, 2rem);
   line-height: 0.82;
 }
 
@@ -267,7 +251,7 @@
 
 .hobbies-word--outline {
   position: absolute;
-  top: clamp(1.1rem, 4.2vw, 3.1rem);
+  top: clamp(0.9rem, 3vw, 2rem);
   left: clamp(0.75rem, 4vw, 3.5rem);
   z-index: 3;
   color: transparent;
@@ -281,8 +265,8 @@
   }
 }
 
-/* Without text-stroke support the outline layer would render invisible,
-   so fall back to a soft fill rather than nothing. */
+/* ── Fallback for browsers without text-stroke ── */
+
 @supports not ((-webkit-text-stroke: 1px #000) or (text-stroke: 1px #000)) {
   .hobbies-word--outline {
     color: rgba(12, 12, 12, 0.22);
